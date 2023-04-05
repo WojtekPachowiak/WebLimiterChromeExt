@@ -1,19 +1,17 @@
 {
-  "name": "Website Limit",
-  "version": "1.0",
-  "manifest_version": 2,
-  "description": "Limits access to certain websites",
-  "permissions": [
-    "tabs",
-    "storage",
-    "http://*/*",
-    "https://*/*"
-  ],
-  "background": {
-    "scripts": ["background.js"]
-  },
-  "content_scripts": [{
-    "matches": ["<all_urls>"],
-    "js": ["content.js"]
-  }]
-}
+    "manifest_version": 3,
+    "name": "Website Limit",
+    "version": "1.0",
+    "description": "Limits access to certain websites",
+    "permissions": ["scripting"],
+    "host_permissions": ["<all_urls>"],
+    "action": {},
+    "background": {
+      "service_worker": "background.js"
+    },
+    "content_scripts": [{
+      "matches": ["<all_urls>"],
+      "all_frames": true,
+      "js": ["content.js"]
+    }]
+  }
