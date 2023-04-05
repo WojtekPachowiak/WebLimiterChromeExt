@@ -3,9 +3,7 @@
     "name": "Website Limit",
     "version": "1.0",
     "description": "Limits access to certain websites",
-    "permissions": ["scripting"],
-    "host_permissions": ["<all_urls>"],
-    "action": {},
+    "permissions": ["webRequest", "webRequestBlocking", "<all_urls>"],
     "background": {
       "service_worker": "background.js"
     },
@@ -15,3 +13,4 @@
       "js": ["content.js"]
     }]
   }
+  

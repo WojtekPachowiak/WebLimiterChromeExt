@@ -1,7 +1,12 @@
-chrome.scripting.registerServiceWorker({
-    url: "background.js",
-    interceptRequest: true
-  });
+function registerServiceWorker() {
+    navigator.serviceWorker.register("background.js");
+  }
+  
+  if (navigator.serviceWorker) {
+    registerServiceWorker();
+  } else {
+    window.addEventListener("load", registerServiceWorker);
+  }
   
   chrome.webRequest.onBeforeRequest.addListener(
     function(details) {
